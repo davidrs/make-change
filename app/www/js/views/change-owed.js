@@ -16,6 +16,7 @@ var ChangeOwedView = Backbone.View.extend({
 				self.$el.append(moneyView.render().$el);
 				
 				moneyView.$el.on('click', function(){
+					app.walletCollection.add(moneyView.model)
 					self.collection.remove(moneyView.model);
 					self.render();
 				});

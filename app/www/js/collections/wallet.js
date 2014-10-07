@@ -55,7 +55,7 @@ var WalletCollection = MoneyCollection.extend({
 
 				console.log(model.get('value') +'=='+ targetAmount);
 			if(model.get('value') == targetAmount){
-				amountOwed.add(model.clone());
+				amountOwed.add(model);
 				return true;
 			}
 			else if(model.get('value') < targetAmount){
@@ -64,7 +64,7 @@ var WalletCollection = MoneyCollection.extend({
 				//if we can succeed this way proceed
 				if(this.calculateTotalUpToBounds(i) >= targetAmount){
 					targetAmount -= model.get('value');
-					amountOwed.add(model.clone());
+					amountOwed.add(model);
 					this.recursiveAmountOwed(targetAmount, i-1, amountOwed);
 					return true;
 				} else{
@@ -78,7 +78,7 @@ var WalletCollection = MoneyCollection.extend({
 		if( !(i+1 > upperBound)) {
 			model = this.at(i+1);
 			targetAmount -= model.get('value');
-			amountOwed.add(model.clone());
+			amountOwed.add(model);
 			return true;
 		}
 

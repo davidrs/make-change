@@ -16,7 +16,8 @@ var AmountOwedView = Backbone.View.extend({
 			self.$el.append(moneyView.render().$el);
 			
 			moneyView.$el.on('click', function(){
-				app.amountOwed.remove(moneyView.model);	
+				moneyView.model.destroy();
+				//app.amountOwed.remove(moneyView.model);	
 				self.render();			
 			});
 		});

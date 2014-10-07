@@ -39,7 +39,7 @@
                             <div class="ui-block-a"><a data-icon="flat-heart" data-theme="d" href="#play-page" data-role="button">Play</a></div>
                             <div class="ui-block-b"><a data-icon="ms-question" data-theme="g" href="#about-page"  data-role="button" >About</a></div>
                         </fieldset> -->
-                        <a data-icon="flat-bubble" data-theme="f" href="#wallet-page" data-role="button">My 
+                        <a data-icon="flat-menu" data-theme="f" href="#wallet-page" data-role="button">My 
                         Wallet $<span class="wallet-total">0</span></a>
                         <a data-icon="flat-man" data-theme="b" href="#make-change-page" data-role="button">Pay</a>
                         <a data-icon="ms-question" data-theme="g" href="#about-page"  data-role="button" >About</a>
@@ -79,17 +79,17 @@
                    <div >
                         <fieldset class="ui-grid-a">
                             <div class="ui-block-a">
-                                <input type="text" placeholder="Amount owed" id="amount-owed-text" />
+                                <input type="number" placeholder="Amount owed" id="amount-owed-text" />
                             </div>
                             <div class="ui-block-b"><a id="start-calculation" data-icon="flat-heart" data-theme="d" href="#" data-role="button">Go</a></div>
                         </fieldset>
                    </div>
 
-                   <h4>Amount to Pay:</h4>
+                   <h4>Amount to Pay: <small>touch money to remove from wallet</small></h4>
                    <div id="amount-owed" class="change-box">
                    </div>
                    <br />
-                   <h4>Change Expected:</h4>
+                   <h4>Change Expected: <small>touch money to add to wallet</small></h4>
                    <div id="change-expected" class="change-box">
                    </div>
 
@@ -104,7 +104,7 @@
             <div  id="about-page" data-role="page">
                 <div data-role="header" data-id="header1" data-position="fixed" class="ui-header">
                     <a href="#" data-rel="back" data-role="button" data-icon="arrow-l" data-inline="true" >Back</a>
-                    <h1>About App</h1>
+                    <h1>About Make-Change</h1>
                 </div>
                 <div data-role="content"  class="big-text">
                     <h2>Privacy Policy</h2>
@@ -112,7 +112,7 @@
                     <h2>Disclaimer</h2>
                     <p>We do our best, but do not gurantee anything or accept any liability for financial loss as the use of the app, please use at your own risk.</p>
                     <h2>Credits</h2>
-                    <p>This app is ...</p>
+                    <p>This app is the idea and work of Sepand, with development support volunteered by David Rust-Smith.</p>
                 </div>
             </div><!-- end page-->
         </div>
