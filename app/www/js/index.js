@@ -20,10 +20,30 @@ var app = {
         this.allMoneyView.render();
         console.log('this.allMoneyView', this.allMoneyView);
 
+        this.amountOwedView = new AmountOwedView({el:'#amount-owed'});
+        this.changeOwedView = new ChangeOwedView({el:'#change-expected'});
 
+
+        $('#start-calculation').on('click', function(){
+            var targetAmount = $('#amount-owed-text').val();
+            if(targetAmount > 0){
+                app.amountOwed = app.walletCollection.calculateAmountOwed(targetAmount);
+                app.amountOwedView.render();
+
+                var changeExpected = app.amountOwed.calculateChange(targetAmount);
+                if(changeExpected > 0){
+                    changeExpected = Math.round(changeExpected * 100) / 100
+                    changeCollection = app.currencyCollection.calculateChangeCollection(changeExpected);
+                    app.changeOwedView.collection = changeCollection;
+                    app.changeOwedView.render();
+                }
+                
+                
+            } else {
+                alert('Amount must be bigger than 0.');
+            }
+        });
     },
-
-
 
 
     // Bind Event Listeners
@@ -54,3 +74,8 @@ var app = {
 };
 
 app.initialize();
+
+
+$(document).delegate('#make-change-page', 'pageshow', function(){
+
+});
