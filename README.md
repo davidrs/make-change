@@ -12,10 +12,10 @@ iOS numberpad version: http://davidrs.com/make-change/indexIOS.html
 Tools and technology used
 --------------------------
 
-jQuery Mobile (with 'flat-ui' theme)
-PhonegGap
-BackboneJS
-Require
+- jQuery Mobile (with 'flat-ui' theme)
+- PhonegGap
+- BackboneJS
+- RequireJS
 
 
 To start developing
