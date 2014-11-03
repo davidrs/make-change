@@ -7,6 +7,8 @@ requirejs.config({
 var app = {
     // Application Constructor
     initialize: function() {
+        
+        this.initFastClick();
         this.bindEvents();
 
         this.currencyCollection = new CurrencyCollection(CURRENCY_CDN);
@@ -23,7 +25,7 @@ var app = {
         this.amountOwedView = new AmountOwedView({el:'#amount-owed'});
         this.changeOwedView = new ChangeOwedView({el:'#change-expected'});
 
-
+        // TODO: calculation should start on text loss of focus
         $('#start-calculation').on('click', function(){
             var targetAmount = $('#amount-owed-text').val();
             if(targetAmount > 0){
@@ -31,13 +33,11 @@ var app = {
                 app.amountOwedView.render();
 
                 var changeExpected = app.amountOwed.calculateChange(targetAmount);
-                if(changeExpected > 0){
-                    changeExpected = Math.round(changeExpected * 100) / 100
-                    changeCollection = app.currencyCollection.calculateChangeCollection(changeExpected);
-                    app.changeOwedView.collection = changeCollection;
-                    app.changeOwedView.render();
-                }
-                
+                changeExpected = Math.round(changeExpected * 100) / 100
+                changeCollection = app.currencyCollection.calculateChangeCollection(changeExpected);
+                app.changeOwedView.collection = changeCollection;
+                app.changeOwedView.render();
+                $('#pay-results').show();
                 
             } else {
                 alert('Amount must be bigger than 0.');
@@ -60,6 +60,12 @@ var app = {
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
     },
+
+    initFastClick : function() {
+        window.addEventListener('load', function() {
+            FastClick.attach(document.body);
+        }, false);
+    },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
         var parentElement = document.getElementById(id);
@@ -76,6 +82,22 @@ var app = {
 app.initialize();
 
 
-$(document).delegate('#make-change-page', 'pageshow', function(){
-
+$(document).delegate('#make-change-page', 'pagebeforeshow', function(){
+    // Clear change
+    $('#pay-results').hide();
+    $('#amount-owed-text').val('');
+    app.amountOwed = new MoneyCollection();
+    app.amountOwedView.render();
+    app.changeOwedView.collection = new MoneyCollection();
+    app.changeOwedView.render();
 });
+
+// TODO: give text input focus on page load.
+$(document).delegate('#make-change-page', 'pageshow', function(){
+    $('#amount-owed-text').focus();
+});
+
+// Optional: reset text input on focus:
+// $('#amount-owed-text').on('focus', function(){
+//     $(this).val('');
+// });

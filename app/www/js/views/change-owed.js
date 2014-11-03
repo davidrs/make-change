@@ -10,6 +10,20 @@ var ChangeOwedView = Backbone.View.extend({
 	render: function(){
 		var self = this;
 		this.$el.html('');
+		if(this.collection.calculateTotal() > 0){
+			this.$el.html('<h4 >Change Expected</h4>');
+		} else{
+			this.$el.html('<h4 style="background: #fde;" >No Change Expected</h4>');
+		}
+
+		return this;
+	},
+
+
+	// not used, since we can't gurantee type of change that will be given.
+	renderExpectedChange: function(){
+		var self = this;
+		this.$el.html('');
 		if(this.collection){
 			this.collection.each(function(model){
 				var moneyView = new MoneyView({model: model});

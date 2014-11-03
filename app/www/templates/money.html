@@ -1,3 +1,9 @@
 <div class="money <%= obj.type %>" style="background-color:<%= obj.color %>">
-	<%= obj.name || obj.value %>
+	<% if(obj.img){ %>
+		<img src="<%= obj.img %>" />
+	<% } else { %>
+		<div class="no-image">
+			<%= obj.name || obj.value %>
+		</div>
+	<% } %>
 </div>

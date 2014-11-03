@@ -18,6 +18,25 @@ body {
 }
 
 
+.ui-header .ui-btn{
+    padding: 0 20px;
+    background: none;
+    border:none;
+    box-shadow:none;
+    -webkit-box-shadow:none;
+}
+.ui-header .ui-btn-inner{
+    padding-top: 10px;
+    padding-bottom: 20px;
+    padding-right: 20px;
+    border:none;
+}
+
+
+.ui-content{
+    padding:10px;
+}
+
 h1 {
     font-size:24px;
     font-weight:normal;
@@ -25,6 +44,10 @@ h1 {
     overflow:visible;
     padding:0px;
     text-align:center;
+}
+
+.slim {
+    margin: 2px 0 1px;
 }
 
 .event {
@@ -60,10 +83,11 @@ h1 {
  
 #home-page a{
     font-size: 1.2em;
-    margin-top:14px;
-    padding-top:8px;
-    padding-bottom:8px;
+    margin-top:1em;
+    padding-top:0.9em;
+    padding-bottom:0.9em;
 }
+
 
 #about-page{
     font-size: 0.8em;
@@ -83,7 +107,6 @@ h1 {
 }
 
 
-
 .ui-icon-ms-phone {
     background: url("../img/phone-icon.png") 50% 50% no-repeat;
 }
@@ -99,26 +122,72 @@ h1 {
     /*border-bottom:1px solid #888;*/
     clear: left;
     min-height: 30px;
-  overflow: auto;
+    overflow: auto;
+    min-height: 128px;
+}
+
+#change-expected h4{
+    background: #cfb; 
+    padding:1em; 
+    text-align:center;
 }
 
 .money {
-    min-width:40px;
-    background: #16a085;
+    /*min-width:90px;*/
+    height: 50px;
     color:#fff;
-    padding:8px;
-    margin:8px;
+    margin: 6px;
     display: inline-block;
     float: left;
     cursor: pointer;
     text-align: center;
-    font-size: 1.2em; 
+    font-size: 1.6em; 
+}
+
+.money .no-image{
+    margin: 8px;
+}
+
+.money img{
+    /*height: 50px;*/
+    height:100%;
+    margin: 0;
+    border: 0;
+    outline: 0;
+    padding: 0;
 }
 
 .money.coin {
-    min-width:18px;
-    border-radius: 20px;
+    min-width:50px;
+    border-radius: 30px;
     background: #777;
+}
+
+@media only screen and (min-device-width : 768px) {
+
+    div.app{
+        font-size: 1.2em;
+    }
+
+    #home-page a{
+        font-size: 1.9em;
+    }
+
+    .money {
+        height: 80px;
+    }
+
+    .money.coin {
+        font-size: 2.5em;
+        line-height: 1.5em;
+        min-width:80px;
+        border-radius: 80px;
+    }
+}
+
+#wallet-amount{
+    background: #eee;
+    margin: 0;
 }
 
 #wallet-amount .money{

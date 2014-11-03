@@ -9,6 +9,9 @@ var WalletView = Backbone.View.extend({
 		app.walletCollection.on('add', function(model){self.render()});
 		app.walletCollection.on('remove', function(model){self.render()});
 
+
+		$('.btn-empty-wallet').click(function(){self.emptyWallet();});
+
 	},
 
 
@@ -26,6 +29,12 @@ var WalletView = Backbone.View.extend({
 		});
 
 		$('.wallet-total').text(app.walletCollection.calculateTotal());
+	},
+
+	emptyWallet: function(){
+		//TODO: add an 'are you sure'
+		app.walletCollection.reset();
+		this.render();
 	}
 
 });
