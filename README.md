@@ -3,6 +3,8 @@ make-change
 
 Change making PhoneGap app.
 Update to show Adrian.
+Adrian is get help from David 
+
 
 
 Links: http://davidrs.com/make-change/
