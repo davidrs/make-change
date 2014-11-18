@@ -1,7 +1,8 @@
 make-change
 ===========
 
-Change making PhoneGap app
+Change making PhoneGap app.
+Update to show Adrian.
 
 
 Links: http://davidrs.com/make-change/
