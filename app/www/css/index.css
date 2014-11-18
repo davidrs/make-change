@@ -88,6 +88,12 @@ h1 {
     padding-bottom:0.9em;
 }
 
+.about-button{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
 
 #about-page{
     font-size: 0.8em;
@@ -196,6 +202,11 @@ h1 {
 
 #all-money .money{
     outline: 2px dashed #3f6;
+}
+
+
+.pull-right {
+    float:right;
 }
 
 small {
