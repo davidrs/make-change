@@ -2,6 +2,7 @@ make-change
 ===========
 
 Change making PhoneGap app
+Adrian is get help from David 
 
 
 Links: http://davidrs.com/make-change/
